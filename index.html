@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khouloud - Portfolio</title>
+    <meta name="description" content="Portfolio de Khouloud - Checkpoint Lovable" />
+    <meta name="author" content="Khouloud" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, 
+                hsl(310, 45%, 25%) 0%, 
+                hsl(290, 55%, 35%) 50%, 
+                hsl(270, 50%, 45%) 100%);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            mix-blend-mode: screen;
+            filter: blur(100px);
+            opacity: 0.3;
+        }
+
+        .orb-1 {
+            top: 25%;
+            left: 25%;
+            width: 500px;
+            height: 500px;
+            background: hsl(320, 70%, 65%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            bottom: 25%;
+            right: 25%;
+            width: 450px;
+            height: 450px;
+            background: hsl(320, 65%, 55%);
+            opacity: 0.25;
+            animation: float-delayed 25s ease-in-out infinite;
+        }
+
+        .orb-3 {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: rgb(216, 180, 254);
+            filter: blur(120px);
+            opacity: 0.2;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            animation: fade-in 1.2s ease-out;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 12vw, 9rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        p {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 4rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.125rem;
+            font-weight: 500;
+            padding: 1.75rem 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 0.025em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .arrow-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -30px) scale(1.05);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.95);
+            }
+        }
+
+        @keyframes float-delayed {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(-30px, 30px) scale(1.05);
+            }
+            66% {
+                transform: translate(20px, -20px) scale(0.95);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .orb-1, .orb-2, .orb-3 {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gradient-bg"></div>
+        
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        
+        <div class="content">
+            <h1>Khouloud</h1>
+            <p>Checkpoint Lovable</p>
+            <a href="#" class="btn">
+                Voir mes projets
+                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
